@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
-from students.models import Student
+from students.models import Student, Person
 # Create your views here.
 
 
@@ -11,6 +11,10 @@ def index(request):
 def students_json(request):
     students = Student.objects.all()
     return JsonResponse({'students': list(students)})
+
+def person_json(request):
+    person = Person.objects.all()
+    return JsonResponse({'person': list(person)})
 
 
 def index_with_get(request):

@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from students.views import index, students_json, index_with_get
+from students.views import index, students_json, index_with_get, person_json
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
     path('students_page/', index_with_get),
     path('students_json/', students_json),
+    path('person_json/', person_json),
 ]

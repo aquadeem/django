@@ -14,7 +14,20 @@ def students_json(request):
 
 def person_json(request):
     person = Person.objects.all()
-    return JsonResponse({'person': list(person)})
+    new_person = Person()
+    new_person.first_name = 'Anatoly'
+    new_person.last_name = 'Kashpirovsky'
+    new_person.age_person = 'none'
+    new_person.type_person = 'Mage'
+    new_person.create_person = 'none'
+    new_person.update_person = 'none'
+    new_person.status_person = 'Passive'
+    new_person.save()
+
+    """del_person = Person.objects.get(first_name='John')
+    del_person.delete()"""
+
+    return JsonResponse({'person': []})
 
 
 def index_with_get(request):

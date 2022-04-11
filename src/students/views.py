@@ -7,7 +7,7 @@ def index(request):
     return HttpResponse('Hello World')
 
 
-def students_json(request):
+ded students_json(request):
     students = Student.objects.all()
     return JsonResponse({'students': list(students)})
 

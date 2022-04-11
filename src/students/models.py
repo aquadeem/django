@@ -2,12 +2,14 @@ from django.db.models import Model, CharField, DateTimeField, IntegerField
 
 # Create your models here.
 
+
 class DateTimeMixin(Model):
     created_at = DateTimeField(auto_now_add=True, null=True)
     updated_ad = DateTimeField(auto_now=True)
 
     class Meta:
         abstract = True
+
 
 class Student(DateTimeMixin, Model):
 
@@ -23,6 +25,7 @@ class Person(DateTimeMixin, Model):
     type_person = CharField(max_length=50)
     status_person = CharField(max_length=50, default='Active')
 
+
 class Group(DateTimeMixin, Model):
 
     group_name = CharField(max_length=50)
@@ -30,15 +33,18 @@ class Group(DateTimeMixin, Model):
     group_amount = IntegerField(default='0')
     group_type = CharField(max_length=50, default='Offline')
 
+
 class Subject(DateTimeMixin, Model):
 
     subject_name = CharField(max_length=50)
     subject_level = CharField(max_length=50, default='Novice')
 
+
 class Course(DateTimeMixin, Model):
 
     course_name = CharField(max_length=50)
     course_type = CharField(max_length=50, default='Offline')
+
 
 class Lesson(DateTimeMixin, Model):
 

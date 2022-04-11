@@ -1,7 +1,5 @@
 from django.http import HttpResponse, JsonResponse
 from students.models import Student, Person, Group, Subject, Course, Lesson
-from datetime import datetime
-from django.forms import model_to_dict
 # Create your views here.
 
 
@@ -13,6 +11,7 @@ def students_json(request):
     students = Student.objects.all()
     return JsonResponse({'students': list(students)})
 
+
 def person_add(request):
     new_person = Person()
     new_person.first_name = 'Anatoly'
@@ -22,9 +21,11 @@ def person_add(request):
 
     return HttpResponse('Added')
 
+
 def person_list(request):
     person = Person.objects.all().values()
     return JsonResponse({'person': list(person)})
+
 
 def person_delete(request):
 
@@ -42,11 +43,13 @@ def person_delete(request):
 
     return HttpResponse('Deleted')
 
+
 def person_update(request):
     update_person = Person.objects.get(first_name='Anatoly')
     update_person.last_name = 'Kasparov'
     update_person.save()
     return HttpResponse('Updated')
+
 
 def group_add(request):
     new_group = Group()
@@ -56,9 +59,11 @@ def group_add(request):
 
     return HttpResponse('Added')
 
+
 def group_list(request):
     group = Group.objects.all().values()
     return JsonResponse({'group': list(group)})
+
 
 def group_delete(request):
 
@@ -76,11 +81,13 @@ def group_delete(request):
 
     return HttpResponse('Deleted')
 
+
 def group_update(request):
     update_group = Group.objects.get(group_name='Python')
     update_group.group_city = 'Kyiv'
     update_group.save()
     return HttpResponse('Updated')
+
 
 def subject_add(request):
     new_subject = Subject()
@@ -89,9 +96,11 @@ def subject_add(request):
 
     return HttpResponse('Added')
 
+
 def subject_list(request):
     subject = Subject.objects.all().values()
     return JsonResponse({'subject': list(subject)})
+
 
 def subject_delete(request):
 
@@ -109,11 +118,13 @@ def subject_delete(request):
 
     return HttpResponse('Deleted')
 
+
 def subject_update(request):
     update_subject = Subject.objects.get(subject_name='Python')
     update_subject.subject_level = 'Hard'
     update_subject.save()
     return HttpResponse('Updated')
+
 
 def course_add(request):
     new_course = Course()
@@ -121,9 +132,11 @@ def course_add(request):
     new_course.save()
     return HttpResponse('Added')
 
+
 def course_list(request):
     course = Course.objects.all().values()
     return JsonResponse({'course': list(course)})
+
 
 def course_delete(request):
 
@@ -141,11 +154,13 @@ def course_delete(request):
 
     return HttpResponse('Deleted')
 
+
 def course_update(request):
     update_course = Course.objects.get(course_name='Python')
     update_course.course_type = 'telekinesis'
     update_course.save()
     return HttpResponse('Updated')
+
 
 def lesson_add(request):
     new_lesson = Lesson()
@@ -153,9 +168,11 @@ def lesson_add(request):
     new_lesson.save()
     return HttpResponse('Added')
 
+
 def lesson_list(request):
     lesson = Lesson.objects.all().values()
     return JsonResponse({'lesson': list(lesson)})
+
 
 def lesson_delete(request):
 
@@ -173,11 +190,13 @@ def lesson_delete(request):
 
     return HttpResponse('Deleted')
 
+
 def lesson_update(request):
     update_lesson = Lesson.objects.get(lesson_name='Python')
     update_lesson.lesson_type = 'Theory'
     update_lesson.save()
     return HttpResponse('Updated')
+
 
 def index_with_get(request):
     name = request.GET.get('name')

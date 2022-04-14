@@ -1,5 +1,6 @@
 from django.http import HttpResponse, JsonResponse
 from students.models import Student, Person, Group, Subject, Course, Lesson
+from django.shortcuts import render
 # Create your views here.
 
 
@@ -203,3 +204,11 @@ def index_with_get(request):
     if not name:
         name = 'stranger'
     return HttpResponse(f'Hello, {name}')
+
+
+def index_template(request):
+    return render(request, 'index.html')
+
+
+def get_reset_password(request):
+    return render(request, 'reset_password.html')

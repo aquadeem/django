@@ -19,10 +19,12 @@ from students.views import index, index_with_get, students_json, \
     person_add, person_list, person_delete, person_update, group_add, \
     group_list, group_delete, group_update, subject_add, subject_list, subject_delete, \
     subject_update, course_add, course_list, course_delete, course_update, lesson_add, \
-    lesson_list, lesson_delete, lesson_update
+    lesson_list, lesson_delete, lesson_update, index_template, get_reset_password
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('index/', index_template),
+    path('reset_password/', get_reset_password),
     path('', index),
     path('students_page/', index_with_get),
     path('students_json/', students_json),
